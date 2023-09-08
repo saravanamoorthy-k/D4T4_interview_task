@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="clickListener"
+            type="View.OnClickListener" />
+
+        <variable
+            name="addedTaskListListAdapter"
+            type="com.example.myapplication.view.adapter.AddedTaskListListAdapter" />
+
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.viewModel.TaskEntryListViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        tools:context=".view.activity.TaskEntryListActivity">
+
+        <EditText
+            android:id="@+id/etTaskTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Task Title"
+            android:text="@={viewModel.taskListModel.taskTitle}"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/etTaskDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Task Description"
+            android:text="@={viewModel.taskListModel.taskDescription}"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btAddTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{clickListener::onClick}"
+            android:text="Add Task"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            app:cornerRadius="20dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAddedTaskList"
+            rvAdapter="@{addedTaskListListAdapter}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="5"
+            tools:listitem="@layout/adapter_added_task_list" />
+    </LinearLayout>
+</layout>
