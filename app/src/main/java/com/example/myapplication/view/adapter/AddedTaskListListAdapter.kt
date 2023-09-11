@@ -8,7 +8,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.utility.interFace.CommonInterfaceEpoxy
 import com.example.myapplication.R
-import com.example.myapplication.model.TaskListModel
+import com.example.myapplication.data.model.TaskListModel
 import com.example.myapplication.baseClass.BaseAdapter2
 import com.example.myapplication.databinding.AdapterAddedTaskListBinding
 
